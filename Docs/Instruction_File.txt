@@ -1,0 +1,42 @@
+﻿# MoodBloom – Project Context & Phases
+
+**Overview**  
+A .NET 8 WinForms gratitude journal (no designer files) styled with MaterialSkin.2.  
+– Local AES‑256‑encrypted storage in `%AppData%\MoodBloom`  
+– Config (`config.json`): user, encrypted root key, path, prefs  
+– Journal: timestamped entries (mood, tags, text) in encrypted JSON  
+– Zero‑knowledge cloud backup (S3/DigitalOcean)
+
+**Core Layers**  
+- **UI**: Program.vb, FirstRunForm, MainForm, PreferencesForm  
+- **Models**: UserProfile, JournalEntry  
+- **Services**:  
+  - EncryptionService (AES+PBKDF2)  
+  - FileStorageService (JSON I/O)  
+  - LoggingService (rolling log)  
+  - QuoteService (positive quotes)  
+  - CloudSyncService (S3)  
+- **Utils**: SettingsManager, ThemeManager, Windows Hello
+
+**Phases**  
+0. Repo init & folder‑check  
+1. First‑Run wizard (create profile + key)  
+2. Journal UI (mood/tags/text + encrypt)  
+3. Preferences (path, pwd, logs, export, wipe, theme)  
+4. Analytics (charts, AI insights)  
+5. Integrations (quotes API, cloud sync)  
+6. Testing & tuning (unit tests, accessibility)  
+7. Installer & blog series
+
+**Docs (in `/Docs`)**  
+Roadmap, Architecture, Models, Services, UI, EncryptionSpec, ConfigSchema,  
+DeveloperGuide, Testing, Deployment, UserGuide, Troubleshooting, BlogOutline
+
+**File Layout**
+
+/src/MoodBloom Program.vb /UI {FirstRunForm.vb, MainForm.vb, PreferencesForm.vb} /Models {UserProfile.vb, JournalEntry.vb} /Services {EncryptionService.vb, FileStorageService.vb, LoggingService.vb, QuoteService.vb, CloudSyncService.vb} /Utils {SettingsManager.vb, ThemeManager.vb} /Properties {AssemblyInfo.vb}
+
+**Wishlist & Vision**  
+Auto‑lock/timeout, Windows Hello, tag autocomplete, rich text, reminders, localization, plugins,  
+cloud backup, AI‑driven insights, mobile/CLI companions, AI‑only dev blog series.
+

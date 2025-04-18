@@ -1,0 +1,54 @@
+﻿# MoodBloom Dev Blog – Phase 0 Recap
+
+_April 18, 2025 | By Ken LaCroix
+
+---
+
+Welcome to the first MoodBloom developer update! Over the past week we’ve laid the essential groundwork—getting our repository, IDE, and documentation all set up so we can hit the ground running. Here’s what’s been accomplished in **Phase 0: Foundation & Environment Setup**:
+
+## 1. Repository Initialization  
+- **New GitHub repo** named `MoodBloom`, with a VS 2022 “Blank Solution” targeting .NET 8.  
+- Added a **`.gitignore`** (Visual Studio, `/bin`, `/obj`, `*.user`) and committed the empty solution.  
+- Created an initial **`README.md`** stub and **`LICENSE`** (MIT) so our project is officially open‑source from day one.
+
+## 2. IDE & Project Configuration  
+- Switched our **TargetFramework** to `net8.0-windows` and enabled `<UseWindowsForms>true</UseWindowsForms>`.  
+- Disabled the VB “My Application” framework by setting `<UseApplicationFramework>false</UseApplicationFramework>` and `<StartupObject>MoodBloom.Program</StartupObject>`.  
+- Wrote a **`Module Program`** with `Sub Main()` that calls `Application.Run(New FirstRunForm())`.  
+- Installed **MaterialSkin.2** via NuGet for modern light/dark theming.  
+- Turned on strict VB rules (`OptionStrict On`, `OptionExplicit On`, `Nullable enable`) and configured StyleCop analyzers with **treat‑warnings‑as‑errors** so we maintain high code quality.
+
+## 3. First‑Run Form Scaffold  
+- Added a **`FirstRunForm.vb`** code‑only WinForms class (no designer files), to be fleshed out shortly with username/password and folder‑picker controls.  
+- Cleaned up stray artifacts: removed `Form1.vb`, `ApplicationEvents.vb`, and the `/My Project` folder so we have truly code‑only forms.
+
+## 4. Documentation Skeleton  
+Inside `/Docs` we created Markdown stubs with `# Title` and `## TODO` placeholders for:
+
+- Roadmap.md  
+- Architecture.md  
+- Models.md  
+- Services.md  
+- UIArchitecture.md  
+- EncryptionSpec.md  
+- ConfigSchema.md  
+- DeveloperGuide.md  
+- Testing.md  
+- Deployment.md  
+- UserGuide.md  
+- Troubleshooting.md  
+- BlogPostOutline.md  
+
+This gives us a clear outline to populate as we build each phase.
+
+## 5. Next Milestones  
+With Phase 0 complete, we’ll branch off `feature/phase-1-first-run` and begin:
+
+1. **First‑Run Wizard**: build out `FirstRunForm` UI, derive/encrypt a PBKDF2 root key, and save `config.json`.  
+2. **SettingsManager**: load & save user config, default storage path under `%AppData%\MoodBloom`.  
+3. **Unit Tests**: scaffold tests in `MoodBloom.Tests` for `EncryptionService` and `SettingsManager`.  
+
+Stay tuned for the next update, where we’ll dive into AES encryption, secure JSON storage, and the first bits of user interaction. Thanks for following along—feel free to star ⭐ the repo or open an issue if you have feedback!
+
+> **Code & Docs:** https://github.com/yourusername/MoodBloom  
+> **Next post:** “Phase 1 Deep Dive – First‑Run Wizard & Config” (Coming soon)  

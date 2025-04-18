@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<RootNamespace>MoodBloom</RootNamespace>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<UseWindowsForms>true</UseWindowsForms>
+
+		<!-- Code quality and analysis -->
+		<OptionStrict>On</OptionStrict>
+		<OptionInfer>Off</OptionInfer>
+		<OptionExplicit>On</OptionExplicit>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+		<!-- License packaging -->
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		
+		<!-- disable the VB “My Application” framework -->
+		<UseApplicationFramework>false</UseApplicationFramework>
+
+		<!-- force the startup object to Program.Main -->
+		<StartupObject>MoodBloom.Program</StartupObject>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- Use MaterialSkin.2 unless you specifically need RTL support -->
+		<!-- StyleCop analyzers -->
+		<PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="MaterialSkin.2" Version="2.3.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- Ensure LICENSE is included in any NuGet pack -->
+		<None Update="LICENSE">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+</Project>
