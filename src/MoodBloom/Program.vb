@@ -9,5 +9,3 @@ Module Program
         Application.Run(New FirstRunForm())
     End Sub
 End Module
-
-End Module
